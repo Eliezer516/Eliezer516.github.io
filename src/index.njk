@@ -1,0 +1,150 @@
+---
+layout: base.njk
+title: "Portafolio"
+eleventyComputed:
+  metadata:
+    title: "{{ title }}"
+---
+
+<main>
+  <section class="hero flex flex-col md:flex-row">
+    <div class="left text-white md:w-1/2 flex flex-col justify-around bg-slate-800 h-screen p-10">
+      <div class="icons flex flex-wrap">
+        <img class="w-12 mr-2" src="{{ '/assets/icons/html5.svg' | url }}" alt="imagen">
+        <img class="w-12 mr-2" src="{{ '/assets/icons/css3.svg' | url }}" alt="imagen">
+        <img class="w-12 mr-2" src="{{ '/assets/icons/javascript.svg' | url }}" alt="imagen">
+        <img class="w-12 mr-2" src="{{ '/assets/icons/react.svg' | url }}" alt="imagen">
+        <img class="w-12 mr-2" src="{{ '/assets/icons/svelte.svg' | url }}" alt="imagen">
+        <img class="w-12 mr-2" src="{{ '/assets/icons/bootstrap.svg' | url }}" alt="imagen">
+        <img class="w-12 mr-2" src="{{ '/assets/icons/tailwindcss.svg' | url }}" alt="imagen">
+      </div>
+      <h1 class="text-6xl">Lleva tus diseños a la realidad</h1>
+      <div class="text-lg font-bold">
+        <h2>Yonaiker Barreto</h2>
+        <h3>Maquetador web y redactor digital</h3>
+      </div>
+      <div>
+        <a href="#" class="bg-red-500 rounded-lg px-6 py-2">Conoce más</a>
+      </div>
+    </div>
+    <div class="right relative hidden md:block md:w-1/2">
+      <div class="bg-container overflow-hidden absolute w-full h-full flex justify-center items-center bg-slate-950"></div>
+    </div>
+  </section>
+  <section class="quote flex flex-col md:flex-row h-min md:h-96 bg-slate-900 text-white">
+      <div class="w-ful md:w-1/2 p-10 flex items-start">
+          <h2 class="text-6xl">David Heath</h2>
+      </div>
+      <div class="w-ful md:w-1/2 p-10 flex items-end">
+        <p class="text-3xl text-right">"El diseño web no es solo sobre crear algo visualmente atractivo. Se trata de la funcionalidad y la usabilidad, de cómo los usuarios experimentan tu sitio web".</p>
+      </div>
+      </div>
+  </section>
+  <section class="about flex flex-col md:flex-row">
+    <div class="left hidden md:block md:w-1/2">
+        <img class="w-full" src="{{ '/assets/img/me.jpg' | url }}" alt="#" />
+    </div>
+    <div class="right h-[600px] md:h-[auto] flex flex-col justify-around w-full md:w-1/2 bg-slate-100 p-10">
+        <h2 class="text-6xl">Sobre mí</h2>
+        <div>
+            <p class="text-xl">Soy, una persona decidida, proactiva, responsable y amigable. Me gusta trabajar en equipo y siempre estoy dispuesto a aprender nuevas cosas. Soy adaptable y creativo, lo que me permite resolver problemas de manera efectiva. Además, soy comunicativo, organizado y detallista. Estoy seguro de que estas cualidades me permitirán desempeñarme de manera efectiva en cualquier rol que desempeñe.</p>
+        </div>
+        <div>
+            <a class="bg-red-500 rounded-lg px-6 py-2" href="#">Contactame</a>
+        </div>
+    </div>
+  </section>
+  <section class="bg-slate-800 p-16">
+    <div class="mb-10">
+      <h2 class="text-6xl font-semibold text-white">Mis trabajos</h2>
+    </div>
+    <div class="proyects grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div class="proyect relative group">
+        <a href="https://eliezer516.github.io/minicode/" target="_blank">
+          <img class="h-full object-cover" src="{{ 'assets/img/minicode.png' | url }}" alt="proyect" />
+          <div class="absolute bottom-0 px-4 py-10 bg-gradient-to-t from-black w-full group-hover:h-32">
+            <p class="text-white font-semibold text-4xl">Minicode</p>
+          </div>
+        </a>
+      </div>
+      <div class="proyect relative group">
+        <a href="https://eliezer516.github.io/minijs/" target="_blank">
+          <img class="h-full object-cover" src="{{ 'assets/img/minijs.png' | url }}" alt="proyect" />
+          <div class="absolute bottom-0 px-4 py-10 bg-gradient-to-t from-black w-full group-hover:h-32">
+            <p class="text-white font-semibold text-4xl">Minijs</p>
+          </div>
+        </a>
+      </div>
+      <div class="proyect relative group">
+        <a href="https://inverbapi3.onrender.com/" target="_blank">
+          <img class="h-full object-cover" src="{{ 'assets/img/escritorio.png' | url }}" alt="proyect" />
+          <div class="absolute bottom-0 px-4 py-10 bg-gradient-to-t from-black w-full group-hover:h-32">
+            <p class="text-white font-semibold text-4xl">Escricorio contable</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="posts bg-slate-100 p-10">
+    <div class="mb-10">
+      <h2 class="text-6xl font-semibold">Ultimos posts</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-20">
+      <img class="h-full hidden md:block object-cover" src="{{ 'assets/img/redaccion.jpg' | url }}" alt="proyect" />
+      <div class="flex flex-col justify-around">
+        <div class="posts-list">
+          {% for post in collections.post | reverse %}
+            {% if loop.index < 4 %}
+              <div class="w-full py-4">
+                <div class="font-bold text-xl mb-2"><a class="cursor-pointer" href="{{ post.url | url }}">{{ post.data.title }}</a></div>
+                <p class="text-gray-700 text-base">{{ post.data.desc }}</p>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+        <a href="{{ '/posts/' | url }}" class="font-bold text-3xl">Todos los posts</a>
+      </div>
+    </div>
+  </section>
+  <section class="contact bg-slate-900 flex flex-col md:flex-row md:gap-16 p-16">
+    <div class="w-full md:w-1/2">
+      <h1 class="text-white text-5xl md:text-6xl mb-20">Contactate conmigo</h1>
+      <form class="w-full">
+        <div class="flex flex-wrap -mx-3 mb-6">
+          <div class="w-full px-3">
+            <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-password">
+              Nombre
+            </label>
+            <input class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="name" type="text">
+          </div>
+        </div>
+        <div class="flex flex-wrap -mx-3 mb-6">
+          <div class="w-full px-3">
+            <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-password">
+              E-mail
+            </label>
+            <input class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="email" type="email">
+          </div>
+        </div>
+        <div class="flex flex-wrap -mx-3 mb-6">
+          <div class="w-full px-3">
+            <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-password">
+              Message
+            </label>
+            <textarea class=" no-resize appearance-none block w-full bg-white text-gray-700 border border-gray-200 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none" id="message"></textarea>
+          </div>
+        </div>
+        <div class="md:flex md:items-center">
+          <div class="md:w-1/3">
+            <button class="shadow bg-slate-400 hover:bg-slate-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">
+              Enviar
+            </button>
+          </div>
+          <div class="md:w-2/3"></div>
+        </div>
+      </form>
+    </div>
+    <div class="w-full md:w-1/2 text-white">
+    </div>
+  </section>
+</main>

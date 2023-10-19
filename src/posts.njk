@@ -1,0 +1,24 @@
+---
+layout: base.njk
+title: "Todos los posts"
+eleventyComputed:
+  metadata:
+    title: "{{ title }}"
+---
+<main class="p-8">
+  <div class="mb-20">
+    <h1 class="text-5xl text-center">Todos los posts</h1>
+    <hr class="mt-10"/>
+    <p class=" text-xl mx-auto">Además de ser desarrollador web, también tengo experiencia como redactor digital. Me apasiona escribir sobre tecnología, negocios, marketing digital y otros temas relevantes para la web. Como redactor, me enfoco en crear contenido atractivo y optimizado para motores de búsqueda, comprometido con la calidad y la precisión en cada uno de mis textos.</p>
+  </div>
+  <div class="posts-list">
+    {% for post in collections.post | reverse %}
+      <div class="w-full px-6 py-4">
+        <div class="font-bold text-3xl mb-2"><a class="cursor-pointer hover:text-slate-500" href="{{ post.url | url }}">{{ post.data.title }}</a></div>
+        <p class="text-xl mb-2">{{ post.data.desc }}</p>
+        <p class="text-gray-700 text-base">{{ post.date }}</p>
+      </div>
+    {% endfor %}  
+  </div>
+</main>
+
