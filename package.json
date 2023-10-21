@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npm-run-all -p 11ty:watch css:watch",
+    "dev": "npm-run-all -p css:watch 11ty:watch",
     "build": "pnpm run css:build && npm run 11ty:build",
-    "11ty:watch": "eleventy --serve --quiet --ignore-initial",
-    "11ty:build": "eleventy --quiet --incremental",
+    "11ty:watch": "eleventy --serve --quiet --incremental",
+    "11ty:build": "eleventy --quiet",
     "css:watch": "tailwindcss -i ./src/assets/css/main.css -o ./dist/assets/css/main.css -w --postcss",
     "css:build": "tailwindcss -i ./src/assets/css/main.css -o ./dist/assets/css/main.css --postcss"
   },
@@ -15,7 +15,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.1"
+    "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0"
   },
   "dependencies": {
     "@11tyrocks/eleventy-plugin-emoji-readtime": "^1.0.1",

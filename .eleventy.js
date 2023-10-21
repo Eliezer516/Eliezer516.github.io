@@ -3,6 +3,7 @@ const esLocale = require("date-fns/locale/es")
 const metagen = require('eleventy-plugin-metagen')
 const markdownLibrary = require("./libs/headerAnchors.js")
 const emojiReadTime = require("@11tyrocks/eleventy-plugin-emoji-readtime");
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 
 const PrettyError = require("pretty-error").start()
@@ -18,6 +19,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.setLibrary("md", markdownLibrary);
 
   eleventyConfig.addPlugin(metagen)
+  eleventyConfig.addPlugin(syntaxHighlight)
   eleventyConfig.addPlugin(emojiReadTime, {
     label: "Minutos de lectura"
   })

@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Aloja un blog estatico con eleventy en GitHub Pages y GitHub Actions</title>
+	<meta name="title" content="Aloja un blog estatico con eleventy en GitHub Pages y GitHub Actions">
+	<meta name="description" content="GitHub Pages es una muy buena herramienta para alojar sitios web completamente estaticos sin necesidad">
+	<meta property="og:type" content="website">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:title" content="Aloja un blog estatico con eleventy en GitHub Pages y GitHub Actions">
+	<meta property="og:description" content="GitHub Pages es una muy buena herramienta para alojar sitios web completamente estaticos sin necesidad">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Aloja un blog estatico con eleventy en GitHub Pages y GitHub Actions">
+	<meta name="twitter:description" content="GitHub Pages es una muy buena herramienta para alojar sitios web completamente estaticos sin necesidad">
+  </head>
+  <body class="container">
+    <header class="w-full bg-slate-900 text-white text-xl flex justify-end px-8 py-4">
+  <nav>
+    <a class="mr-10" href="/">Inicio</a>
+    <a href="/posts/">Blog</a>
+  </nav>
+</header>
+
+    
+<style>
+  /**
+ * a11y-dark theme for JavaScript, CSS, and HTML
+ * Based on the okaidia theme: https://github.com/PrismJS/prism/blob/gh-pages/themes/prism-okaidia.css
+ * @author ericwbailey
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: 0.5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #2b2b2b;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: 0.1em;
+	border-radius: 0.3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #d4d0ab;
+}
+
+.token.punctuation {
+	color: #fefefe;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #ffa07a;
+}
+
+.token.boolean,
+.token.number {
+	color: #00e0e0;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #abe338;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #00e0e0;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function {
+	color: #ffd700;
+}
+
+.token.keyword {
+	color: #00e0e0;
+}
+
+.token.regex,
+.token.important {
+	color: #ffd700;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+
+@media screen and (-ms-high-contrast: active) {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		color: windowText;
+		background: window;
+	}
+
+	:not(pre) > code[class*="language-"],
+	pre[class*="language-"] {
+		background: window;
+	}
+
+	.token.important {
+		background: highlight;
+		color: window;
+		font-weight: normal;
+	}
+
+	.token.atrule,
+	.token.attr-value,
+	.token.function,
+	.token.keyword,
+	.token.operator,
+	.token.selector {
+		font-weight: bold;
+	}
+
+	.token.attr-value,
+	.token.comment,
+	.token.doctype,
+	.token.function,
+	.token.keyword,
+	.token.operator,
+	.token.property,
+	.token.string {
+		color: highlight;
+	}
+
+	.token.attr-value,
+	.token.url {
+		font-weight: normal;
+	}
+}
+
+.token.deleted {
+  background-color: hsl(350deg 100% 88% / 20%);
+}
+.token.inserted {
+  background-color: hsl(120deg 73% 75% / 20%);
+}
+
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+	display: block;
+}
+</style>
+
+<article class="prose lg:prose-xl prose-img:rounded-lg mx-auto max-w-[75ch] text-justify p-8">
+  <h1>Aloja un blog estatico con eleventy en GitHub Pages y GitHub Actions</h1>
+  🍿  4 Minutos de lectura
+  
+  <p>GitHub Pages es una muy buena herramienta para alojar sitios web completamente estaticos sin necesidad de muchos pasos, de hecho este portafolio esta alojado alli.</p>
+<p>Pero apesar de su facilidad suele ser un poco coplicado (en algunos casos) alojar sitios construidos con ciertas tecnologias, como es el caso de <a href="https://11ty.dev">Eleventy</a>.</p>
+<p>Bueno, en mi caso me costo un monton.</p>
+<p><a href="https://11ty.dev">Eleventy</a> es un maravilloso (y sobretodo rapido) generador de sitios estaticos, este soporta diferentes formatos de plantillas (nunjucks, liquid, html, pug, ect) y tambien soporta Markdown, de hecho este es su mayor fuerte.</p>
+<p>Pero al momento de alojar un sitio web o blog hay herramientas como <a href="https://render.com">Render</a> o <a href="https://netlify.com">Netlify</a> que hacen facil el proceso, pero otros, al ver que el sitio es solo contenido estatico, optan por utilizar el servicio de GitHub Pages.</p>
+<p>Asi que en este tutorial te mostrare como implementar tu sitio en esta plataforma de manera rapida y sensilla, <strong>asi que comencemos!</strong></p>
+<div class="heading-wrapper h2">
+<h2 id="crear-archivo-buildyml"><a class="anchor" href="#crear-archivo-buildyml"><span>#</span></a> Crear archivo <code>build.yml</code></h2>
+</div>
+<p>En primer lugar, vas a ir al la carpeta donde tienes tu codigo y crearas un archivo en la raiz, el archivo es un <code>.yml</code> que utilizara Github Actions para construir el sitio y subirlo a GitHub Pages.</p>
+<p>El archivo lo ubicaras aquí: <code>.github/workflows/build.yml</code>.</p>
+<p><strong>Puedes sustituir el nombre de build por el que quieras</strong>.</p>
+<div class="heading-wrapper h2">
+<h2 id="script-para-github-actions"><a class="anchor" href="#script-para-github-actions"><span>#</span></a> Script para GitHub Actions</h2>
+</div>
+<p>Una vez que lo tengas colocaras en su interior el siguiente codigo.</p>
+<pre class="language-yml"><code class="language-yml"><span class="token comment"># Flujo de trabajo simple para implementar contenido estático en Github Pages</span>
+<span class="token key atrule">name</span><span class="token punctuation">:</span> Implementar contenido estático a Pages
+
+<span class="token key atrule">on</span><span class="token punctuation">:</span>
+  <span class="token comment"># Se ejecuta en anotaciones dirigidas a la rama predeterminada</span>
+  <span class="token key atrule">push</span><span class="token punctuation">:</span>
+    <span class="token key atrule">branches</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'main'</span><span class="token punctuation">]</span>
+
+  <span class="token comment"># Te permite ejecutar este flujo de trabajo manualmente desde la pestaña Acciones</span>
+  <span class="token key atrule">workflow_dispatch</span><span class="token punctuation">:</span>
+
+<span class="token comment"># Establece los permisos de GITHUB_TOKEN para permitir la implementación en GitHub Pages</span>
+<span class="token key atrule">permissions</span><span class="token punctuation">:</span>
+  <span class="token key atrule">contents</span><span class="token punctuation">:</span> read
+  <span class="token key atrule">pages</span><span class="token punctuation">:</span> write
+  <span class="token key atrule">id-token</span><span class="token punctuation">:</span> write
+
+<span class="token comment"># Permite una implementación simultánea</span>
+<span class="token key atrule">concurrency</span><span class="token punctuation">:</span>
+  <span class="token key atrule">group</span><span class="token punctuation">:</span> <span class="token string">'pages'</span>
+  <span class="token key atrule">cancel-in-progress</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+
+<span class="token key atrule">jobs</span><span class="token punctuation">:</span>
+  <span class="token comment"># Trabajo de implementación único ya que solo estamos implementando</span>
+  <span class="token key atrule">deploy</span><span class="token punctuation">:</span>
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token key atrule">name</span><span class="token punctuation">:</span> github<span class="token punctuation">-</span>pages
+      <span class="token key atrule">url</span><span class="token punctuation">:</span> $
+    <span class="token key atrule">runs-on</span><span class="token punctuation">:</span> ubuntu<span class="token punctuation">-</span>latest
+    <span class="token key atrule">steps</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/checkout@v3
+      <span class="token punctuation">-</span> <span class="token key atrule">uses</span><span class="token punctuation">:</span> pnpm/action<span class="token punctuation">-</span>setup@v2
+        <span class="token key atrule">with</span><span class="token punctuation">:</span>
+          <span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token number">7</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Set up Node
+        <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/setup<span class="token punctuation">-</span>node@v3
+        <span class="token key atrule">with</span><span class="token punctuation">:</span>
+          <span class="token key atrule">node-version</span><span class="token punctuation">:</span> <span class="token number">18</span>
+          <span class="token key atrule">cache</span><span class="token punctuation">:</span> <span class="token string">'pnpm'</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Install dependencies
+        <span class="token key atrule">run</span><span class="token punctuation">:</span> pnpm install
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Build
+        <span class="token key atrule">run</span><span class="token punctuation">:</span> pnpm run build
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Setup Pages
+        <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/configure<span class="token punctuation">-</span>pages@v3
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Upload artifact
+        <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/upload<span class="token punctuation">-</span>pages<span class="token punctuation">-</span>artifact@v1
+        <span class="token key atrule">with</span><span class="token punctuation">:</span>
+          <span class="token comment"># Subir repositorio dist</span>
+          <span class="token key atrule">path</span><span class="token punctuation">:</span> <span class="token string">'./dist'</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Deploy to GitHub Pages
+        <span class="token key atrule">id</span><span class="token punctuation">:</span> deployment
+        <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/deploy<span class="token punctuation">-</span>pages@v1</code></pre>
+<p>En <code>path: './dist'</code> hay que sustituir <code>dist</code> por la carpeta de salida de eleventy, ya sea que se llame <code>out</code> u otro nombre, esto es muy importante se realizar, sino GitHub Pages no encontrara el archivo index.html.</p>
+<hr>
+<p><strong>Ten en cuenta que para este ejemplo estoy utilizando el administrador de paquetes pnpm</strong></p>
+<p>Si no lo quieres utilizar solo debes modificar las siguientes lineas:</p>
+<pre class="language-diff-yml"><code class="language-diff-yml"># ...
+<span class="token deleted-sign deleted language-yml"><span class="token prefix deleted">-</span>     <span class="token punctuation">-</span> <span class="token key atrule">uses</span><span class="token punctuation">:</span> pnpm/action<span class="token punctuation">-</span>setup@v2
+<span class="token prefix deleted">-</span>       <span class="token key atrule">with</span><span class="token punctuation">:</span>
+<span class="token prefix deleted">-</span>         <span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token number">7</span>
+</span><span class="token unchanged language-yml"><span class="token prefix unchanged"> </span>     <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Set up Node
+<span class="token prefix unchanged"> </span>       <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/setup<span class="token punctuation">-</span>node@v3
+<span class="token prefix unchanged"> </span>       <span class="token key atrule">with</span><span class="token punctuation">:</span>
+<span class="token prefix unchanged"> </span>         <span class="token key atrule">node-version</span><span class="token punctuation">:</span> <span class="token number">18</span>
+</span><span class="token deleted-sign deleted language-yml"><span class="token prefix deleted">-</span>         <span class="token key atrule">cache</span><span class="token punctuation">:</span> <span class="token string">'pnpm'</span>
+</span><span class="token inserted-sign inserted language-yml"><span class="token prefix inserted">+</span>         <span class="token key atrule">cache</span><span class="token punctuation">:</span> <span class="token string">'npm'</span>
+</span><span class="token unchanged language-yml"><span class="token prefix unchanged"> </span>     <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Install dependencies
+</span><span class="token deleted-sign deleted language-yml"><span class="token prefix deleted">-</span>       <span class="token key atrule">run</span><span class="token punctuation">:</span> pnpm install
+</span><span class="token inserted-sign inserted language-yml"><span class="token prefix inserted">+</span>       <span class="token key atrule">run</span><span class="token punctuation">:</span> npm install
+</span><span class="token unchanged language-yml"><span class="token prefix unchanged"> </span>     <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Build
+</span><span class="token deleted-sign deleted language-yml"><span class="token prefix deleted">-</span>       <span class="token key atrule">run</span><span class="token punctuation">:</span> pnpm run build
+</span><span class="token inserted-sign inserted language-yml"><span class="token prefix inserted">+</span>       <span class="token key atrule">run</span><span class="token punctuation">:</span> npm run build
+</span># ...</code></pre>
+<p>Por increible que suene este es el ejemplo que utiliza Vite en su documentacion, el cual resuelve perfectamete nuestra necesidad.</p>
+<div class="heading-wrapper h2">
+<h2 id="hacer-un-git-push"><a class="anchor" href="#hacer-un-git-push"><span>#</span></a> Hacer un <code>git push</code></h2>
+</div>
+<p>Ahora lo unico que resta es hacer in push al repositorio donde esta alojado el codigo y listo, solo hay que esperar a que GitHub Actions haga su <strong>magia</strong>.</p>
+
+</article>
+
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="assets/js/background.js" ></script>
+</html>
+
+
