@@ -19,7 +19,14 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.setLibrary("md", markdownLibrary);
 
   eleventyConfig.addPlugin(metagen)
-  eleventyConfig.addPlugin(syntaxHighlight)
+  eleventyConfig.addPlugin(syntaxHighlight, {
+    preAttributes: {
+      class: ({ language }) => `group/code animate-fade rounded-lg bg-slate-900/80 language-${language || 'plain'}`,
+    },
+    init: ({ Prism }) => {
+      console.log(Prism)
+    }
+  })
   eleventyConfig.addPlugin(emojiReadTime, {
     label: "Minutos de lectura"
   })

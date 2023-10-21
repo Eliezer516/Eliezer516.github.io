@@ -29,12 +29,6 @@
 
     
 <style>
-  /**
- * a11y-dark theme for JavaScript, CSS, and HTML
- * Based on the okaidia theme: https://github.com/PrismJS/prism/blob/gh-pages/themes/prism-okaidia.css
- * @author ericwbailey
- */
-
 code[class*="language-"],
 pre[class*="language-"] {
 	color: #f8f8f2;
@@ -233,7 +227,7 @@ pre[class*="language-"] {
 <h2 id="script-para-github-actions"><a class="anchor" href="#script-para-github-actions"><span>#</span></a> Script para GitHub Actions</h2>
 </div>
 <p>Una vez que lo tengas colocaras en su interior el siguiente codigo.</p>
-<pre class="language-yml"><code class="language-yml"><span class="token comment"># Flujo de trabajo simple para implementar contenido estático en Github Pages</span>
+<pre class="group/code animate-fade rounded-lg bg-slate-900/80 language-yml"><code class="language-yml"><span class="token comment"># Flujo de trabajo simple para implementar contenido estático en Github Pages</span>
 <span class="token key atrule">name</span><span class="token punctuation">:</span> Implementar contenido estático a Pages
 
 <span class="token key atrule">on</span><span class="token punctuation">:</span>
@@ -290,7 +284,7 @@ pre[class*="language-"] {
 <hr>
 <p><strong>Ten en cuenta que para este ejemplo estoy utilizando el administrador de paquetes pnpm</strong></p>
 <p>Si no lo quieres utilizar solo debes modificar las siguientes lineas:</p>
-<pre class="language-diff-yml"><code class="language-diff-yml"># ...
+<pre class="group/code animate-fade rounded-lg bg-slate-900/80 language-diff-yml"><code class="language-diff-yml"># ...
 <span class="token deleted-sign deleted language-yml"><span class="token prefix deleted">-</span>     <span class="token punctuation">-</span> <span class="token key atrule">uses</span><span class="token punctuation">:</span> pnpm/action<span class="token punctuation">-</span>setup@v2
 <span class="token prefix deleted">-</span>       <span class="token key atrule">with</span><span class="token punctuation">:</span>
 <span class="token prefix deleted">-</span>         <span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token number">7</span>
@@ -317,7 +311,9 @@ pre[class*="language-"] {
 
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="assets/js/background.js" ></script>
+  <script src="/assets/js/background.js" ></script>
+  <script src="/assets/js/copy_code.js" ></script>
+  
 </html>
 
 
