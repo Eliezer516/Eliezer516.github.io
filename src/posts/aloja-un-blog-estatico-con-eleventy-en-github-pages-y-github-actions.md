@@ -8,6 +8,10 @@ eleventyComputed:
     desc: "{{ desc }}"
 ---
 
+{{ page.url | formatUrl }}
+
+![img](https://v1.screenshot.11ty.dev/{{ 'page.url' | url | formatUrl}}/opengraph/)
+
 GitHub Pages es una muy buena herramienta para alojar sitios web completamente estaticos sin necesidad de muchos pasos, de hecho este portafolio esta alojado alli.
 
 Pero apesar de su facilidad suele ser un poco coplicado (en algunos casos) alojar sitios construidos con ciertas tecnologias, como es el caso de [Eleventy](https://11ty.dev).

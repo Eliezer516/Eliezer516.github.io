@@ -22,9 +22,6 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight, {
     preAttributes: {
       class: ({ language }) => `group/code animate-fade rounded-lg bg-slate-900/80 language-${language || 'plain'}`,
-    },
-    init: ({ Prism }) => {
-      console.log(Prism)
     }
   })
   eleventyConfig.addPlugin(emojiReadTime, {
@@ -42,6 +39,10 @@ module.exports = function(eleventyConfig) {
     const fechaLegible = fechaFormateada.charAt(0).toUpperCase() + fechaFormateada.substring(1)
     return fechaLegible
   });
+
+  eleventyConfig.addFilter("formatUrl", url => {
+    return url.replace(/:/g, "%3A").replace(/([/])/g, "%2F")
+  })
   return {
     dir: {
       input: "src",
