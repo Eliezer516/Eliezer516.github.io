@@ -29,6 +29,10 @@ window.onload = () => {
 
       button.addEventListener('click', () => {
         navigator.clipboard.writeText(pre.textContent);
+        button.classList.add('bg-green-300')
+        setTimeout(() => {
+          button.classList.remove('bg-green-300')
+        }, 3000)
       });
       pre.appendChild(button);
     });

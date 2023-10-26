@@ -3,10 +3,6 @@ title: "Los mejores lenguajes de programación para principiantes"
 date: 2023-07-18
 imgUrl: "https://images.pexels.com/photos/270360/pexels-photo-270360.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
 desc: "La programación es una habilidad valiosa que puede abrirte muchas puertas en tu carrera. Si estás interesado en aprender a programar, pero no sabes por dónde empezar, este artículo es para ti..."
-eleventyComputed:
-  metadata:
-    title: "{{ title }}"
-    desc: "{{ desc }}"
 ---
 
 La programación es una habilidad valiosa que puede abrirte muchas puertas en tu carrera. Si estás interesado en aprender a programar, pero no sabes por dónde empezar, este artículo es para ti. En este artículo, te mostraremos los mejores lenguajes de programación para principiantes.

@@ -2,15 +2,7 @@
 title: Aloja un blog estatico con eleventy en GitHub Pages y GitHub Actions
 desc: GitHub Pages es una muy buena herramienta para alojar sitios web completamente estaticos sin necesidad
 date: 2023-10-20
-eleventyComputed:
-  metadata:
-    title: "{{ title }}"
-    desc: "{{ desc }}"
 ---
-
-{{ page.url | formatUrl }}
-
-![img](https://v1.screenshot.11ty.dev/{{ 'page.url' | url | formatUrl}}/opengraph/)
 
 GitHub Pages es una muy buena herramienta para alojar sitios web completamente estaticos sin necesidad de muchos pasos, de hecho este portafolio esta alojado alli.
 

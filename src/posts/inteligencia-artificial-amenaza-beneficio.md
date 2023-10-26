@@ -3,9 +3,6 @@ title: "La inteligencia artificial: ¿amenaza o beneficio para la humanidad?"
 date: 2023-07-04
 imgUrl: "https://images.pexels.com/photos/6153354/pexels-photo-6153354.jpeg"
 desc: "¿Alguna vez te has preguntado cómo sería si las computadoras y robots pudieran pensar y"
-metadata:
-  title: "{{ title }}"
-  desc: "{{ desc }}"
 ---
 
 ¿Alguna vez te has preguntado cómo sería si las computadoras y robots pudieran pensar y tomar decisiones por sí mismos? La inteligencia artificial (IA) es una tecnología que ha experimentado un gran avance en los últimos años y que permite precisamente eso. Pero, ¿es la IA una amenaza o un beneficio para la humanidad? En este artículo, te explicaremos todo lo que necesitas saber sobre la IA y por qué algunos la ven como una amenaza y otros como un gran beneficio.

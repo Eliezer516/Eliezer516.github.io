@@ -2,5 +2,13 @@
   "layout": "post.njk",
   "tags": [
     "post"
-  ]
+  ],
+  "basePath": "https://eliezer516.github.io",
+  "eleventyComputed": {
+    "metadata": {
+      "title": "{{ title }}",
+      "desc": "{{ desc }}",
+      "img": "https://v1.screenshot.11ty.dev/{{ basePath | formatUrl }}{{ page.url | formatUrl }}/opengraph/"
+    }
+  }
 }

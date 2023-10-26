@@ -3,10 +3,6 @@ title: "El futuro de las aplicaciones móviles: tendencias y predicciones"
 date: 2023-07-01
 imgUrl: "https://images.pexels.com/photos/267389/pexels-photo-267389.jpeg"
 desc: "En los últimos años, el uso de smartphones se ha convertido en una parte integral" 
-eleventyComputed:
-  metadata:
-    title: "{{ title }}"
-    desc: "{{ desc }}"
 ---
 
 En los últimos años, el uso de smartphones se ha convertido en una parte integral de nuestras vidas. Desde la comunicación hasta la compra de bienes y servicios, usamos aplicaciones móviles para todo. Con el paso del tiempo, las aplicaciones móviles también han evolucionado. Hoy en día, las aplicaciones móviles tienen más características y funcionalidades que nunca antes. En este artículo, exploraremos algunas de las tendencias y predicciones del futuro de las aplicaciones móviles.

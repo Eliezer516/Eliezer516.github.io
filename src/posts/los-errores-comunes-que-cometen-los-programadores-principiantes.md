@@ -3,10 +3,6 @@ title: "Los errores comunes que cometen los programadores principiantes"
 date: 2023-07-21
 imgUrl: "https://1.bp.blogspot.com/-9FNp6Iq6n-g/WGDk4_-gzwI/AAAAAAAAAUw/HGdCgst8DPkGtpKrr-tc360sj7uI5TM4gCLcB/s1600/dificultad.jpg"
 desc: "La programación es una habilidad compleja que requiere tiempo y esfuerzo para..."
-eleventyComputed:
-  metadata:
-    title: "{{ title }}"
-    desc: "{{ desc }}"
 ---
 
 La programación es una habilidad compleja que requiere tiempo y esfuerzo para dominarla. Incluso los mejores programadores cometen errores, pero hay algunos errores comunes que los principiantes suelen cometer. En este artículo, vamos a discutir algunos de los errores más comunes que cometen los programadores principiantes y cómo puedes evitarlos.
