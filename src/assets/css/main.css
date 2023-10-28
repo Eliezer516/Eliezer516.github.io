@@ -33,3 +33,19 @@
 textarea {
   form-sizing: content;
 }
+
+.proyects {
+  display: grid;
+  grid-auto-rows: auto;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+@layer utilities {
+  .icon {
+    @apply w-6 md:w-12 mr-2;
+  }
+}
+
+.copy-btn {
+  @apply absolute right-4 top-4 border rounded-md p-2 bg-white/80 hover:bg-white text-slate-800 hover:text-slate-900 opacity-0 group-hover/code:opacity-100 transition-opacity transition-colors
+}

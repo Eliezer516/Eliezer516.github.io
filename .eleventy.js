@@ -2,6 +2,7 @@ const format = require("date-fns/format")
 const esLocale = require("date-fns/locale/es")
 const metagen = require('eleventy-plugin-metagen')
 const markdownLibrary = require("./libs/headerAnchors.js")
+const icons = require("./libs/icons.js")
 const emojiReadTime = require("@11tyrocks/eleventy-plugin-emoji-readtime");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
@@ -41,8 +42,13 @@ module.exports = function(eleventyConfig) {
   });
 
   eleventyConfig.addFilter("formatUrl", url => {
-    return url.replace(/:/g, "%3A").replace(/([/])/g, "%2F")
+    return url.replace(/\//g, "%2F").replace(/:/g, "%3A")
   })
+
+  eleventyConfig.addShortcode("icon", function(icon) {
+    return icons(icon)
+  })
+  
   return {
     dir: {
       input: "src",

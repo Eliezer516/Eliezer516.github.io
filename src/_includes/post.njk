@@ -183,7 +183,8 @@ pre[class*="language-"] {
 
 <article class="prose lg:prose-xl prose-img:rounded-lg mx-auto max-w-[75ch] text-justify p-8">
   <h1>{{ title }}</h1>
-  {{ content | emojiReadTime }}
+  <p class="font-bold" >{{ date | readableDate }}</p>
+  <p class="font-bold">{{ content | emojiReadTime }}</p>
   {% if imgUrl %}
     <img src="{{ imgUrl }}" alt="{{ title }}">
   {% endif %}
