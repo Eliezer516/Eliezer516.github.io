@@ -10,10 +10,11 @@ const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const PrettyError = require("pretty-error").start()
 
 module.exports = function(eleventyConfig) {
+
+  eleventyConfig.setWatchThrottleWaitTime(8000)
   
   eleventyConfig.addWatchTarget("./src/assets/js");
   
-  eleventyConfig.addPassthroughCopy('./src/assets/icons');
   eleventyConfig.addPassthroughCopy('./src/assets/js');
   eleventyConfig.addPassthroughCopy('./src/assets/img');
 

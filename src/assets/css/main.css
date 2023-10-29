@@ -42,7 +42,9 @@ textarea {
 
 @layer utilities {
   .icon {
-    @apply w-6 md:w-12 mr-2;
+    @apply w-6 md:w-12 mr-2 relative;
+    opacity: 0;
+    right: 10px;
   }
 }
 
