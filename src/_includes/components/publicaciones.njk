@@ -1,0 +1,21 @@
+  <section class="posts bg-slate-100 p-10">
+    <div class="mb-10">
+      <h2 class="text-4xl md:text-6xl font-semibold">Ultimos posts</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-20">
+      <img class="h-full hidden md:block object-cover" src="{{ 'assets/img/redaccion.jpg' | url }}" alt="proyect" />
+      <div class="flex flex-col justify-around">
+        <div class="posts-list">
+          {% for post in collections.post | reverse %}
+            {% if loop.index < 4 %}
+              <div class="w-full py-4">
+                <div class="font-bold text-md md:text-3xl hover:text-slate-500 mb-2"><a class="cursor-pointer" href="{{ post.url | url }}">{{ post.data.title }}</a></div>
+                <p class="text-gray-700 text-base">{{ post.data.desc }}</p>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+        <a href="{{ '/posts/' | url }}" class="font-bold text-xl text-slate-500">Todos los posts</a>
+      </div>
+    </div>
+  </section>

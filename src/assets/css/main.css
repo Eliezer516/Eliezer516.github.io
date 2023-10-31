@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+.icon {
+  @apply w-6 md:w-12 mr-2 relative opacity-0;
+  right: 10px;
+}
+
 .container {
   width: 100%;
   max-width: 1240px;
@@ -28,26 +33,12 @@
 .backgroundBlock:nth-child(3n + 3) {
   background: #03a9f4;
 }
-
-
-textarea {
-  form-sizing: content;
+.copy-btn {
+  @apply absolute right-4 top-4 border rounded-md p-2 bg-white/80 hover:bg-white text-slate-800 hover:text-slate-900 opacity-0 group-hover/code:opacity-100 transition-opacity transition-colors
 }
 
 .proyects {
   display: grid;
   grid-auto-rows: auto;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-}
-
-@layer utilities {
-  .icon {
-    @apply w-6 md:w-12 mr-2 relative;
-    opacity: 0;
-    right: 10px;
-  }
-}
-
-.copy-btn {
-  @apply absolute right-4 top-4 border rounded-md p-2 bg-white/80 hover:bg-white text-slate-800 hover:text-slate-900 opacity-0 group-hover/code:opacity-100 transition-opacity transition-colors
 }

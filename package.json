@@ -8,7 +8,7 @@
     "build": "pnpm run css:build && npm run 11ty:build",
     "11ty:watch": "eleventy --serve --quiet --incremental",
     "11ty:build": "eleventy --quiet",
-    "css:watch": "tailwindcss -i ./src/assets/css/main.css -o ./dist/assets/css/main.css -w --postcss",
+    "css:watch": "tailwindcss -i ./src/assets/css/main.css -o ./dist/assets/css/main.css --watch",
     "css:build": "tailwindcss -i ./src/assets/css/main.css -o ./dist/assets/css/main.css --postcss"
   },
   "keywords": [],
