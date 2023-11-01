@@ -21,6 +21,10 @@ window.addEventListener("DOMContentLoaded", () => {
       }
     })
   }
-
+  
   generateBackground()
+  
+  backgroundContainer.onclick = () => {
+    generateBackground()
+  }
 })

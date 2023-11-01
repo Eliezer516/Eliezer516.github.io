@@ -11,7 +11,7 @@ const PrettyError = require("pretty-error").start()
 
 module.exports = function(eleventyConfig) {
 
-  eleventyConfig.setWatchThrottleWaitTime(5000)
+  eleventyConfig.setWatchThrottleWaitTime(2000)
   
   eleventyConfig.addWatchTarget("./src/assets/js");
   
