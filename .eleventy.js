@@ -17,6 +17,7 @@ module.exports = function(eleventyConfig) {
   
   eleventyConfig.addPassthroughCopy('./src/assets/js');
   eleventyConfig.addPassthroughCopy('./src/assets/img');
+  eleventyConfig.addPassthroughCopy('./src/assets/css/prism.css');
 
   eleventyConfig.setLibrary("md", markdownLibrary);
 
@@ -30,10 +31,10 @@ module.exports = function(eleventyConfig) {
     label: "Minutos de lectura"
   })
   
-  eleventyConfig.setServerOptions({
-    liveReload: true,
-    domDiff: false
-  })
+  // eleventyConfig.setServerOptions({
+  //   liveReload: true,
+  //   domDiff: true
+  // })
 
   eleventyConfig.addFilter("readableDate", dateObj => {
     const fecha = new Date(dateObj)

@@ -1,12 +1,12 @@
-const form = document.querySelector("#form")
+// const form = document.querySelector("#form")
 
-const sendEmail = () => {
-  const datos = Object.fromEntries(new FormData(form))
-  console.log(datos)
-}
+// const sendEmail = () => {
+//   const datos = Object.fromEntries(new FormData(form))
+//   console.log(datos)
+// }
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault()
-  sendEmail()
-})
+// form.addEventListener("submit", (e) => {
+//   e.preventDefault()
+//   sendEmail()
+// })
 

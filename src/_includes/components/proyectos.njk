@@ -1,71 +1,52 @@
+{% set proyectos = [{
+  url: "https://eliezer516.github.io/minicode/",
+  title: "Minicode",
+  img: "/assets/img/minicode.png"
+}, {
+  url: "https://eliezer516.github.io/minijs/",
+  title: "Minijs",
+  img:"/assets/img/minijs.png"
+}, {
+  url: "https://inverbapi3.onrender.com/",
+  title: "Escritorio contable",
+  img: "assets/img/escritorio.png"
+}, {
+  url: "https://eliezer516.github.io/buscador-de-pelis-v2/",
+  title: "Buscador de peliculas",
+  img: "assets/img/pelis.png"
+}, {
+  url: "https://dreamy-minsky-045cb7.netlify.app/",
+  title: "Fomulario de registro",
+  img: "assets/img/formulario.png"
+}, {
+  url: "https://eliezer516.github.io/mdprev/",
+  title: "Mdprev",
+  img: "assets/img/mdprev.png"
+}, {
+  url: "https://www.npmjs.com/package/object-extractor",
+  title: "object-extractor",
+  img: "assets/img/object.png"
+}, {
+  url: "https://stoic-ardinghelli-e3cf6c.netlify.app/",
+  title: "Control de inventario",
+  img: "assets/img/inventario.png"
+}] %}
+
+
 <section class="bg-slate-800 p-16">
   <div class="mb-10">
     <h2 class="text-4xl md:text-6xl font-semibold text-white">Mis trabajos</h2>
   </div>
   <div class="proyects gap-6">
-    <div class="proyect relative">
-      <a href="https://eliezer516.github.io/minicode/" target="_blank">
-        <img class="h-full object-cover" src="{{ 'assets/img/minicode.png' | url }}" alt="proyect" />
-        <div class="absolute bottom-0 px-4 py-10 bg-gradient-to-t from-black w-full">
-          <p class="text-white font-semibold text-3xl">Minicode</p>
-        </div>
-      </a>
-    </div>
-    <div class="proyect relative">
-      <a href="https://eliezer516.github.io/minijs/" target="_blank">
-        <img class="h-full object-cover" src="{{ 'assets/img/minijs.png' | url }}" alt="proyect" />
-        <div class="absolute bottom-0 px-4 py-10 bg-gradient-to-t from-black w-full">
-          <p class="text-white font-semibold text-3xl">Minijs</p>
-        </div>
-      </a>
-    </div>
-    <div class="proyect relative">
-      <a href="https://inverbapi3.onrender.com/" target="_blank">
-        <img class="h-full object-cover" src="{{ 'assets/img/escritorio.png' | url }}" alt="proyect" />
-        <div class="absolute bottom-0 px-4 py-10 bg-gradient-to-t from-black w-full">
-          <p class="text-white font-semibold text-3xl">Escritorio contable</p>
-        </div>
-      </a>
-    </div>
-    <div class="proyect relative">
-      <a href="https://eliezer516.github.io/buscador-de-pelis-v2/" target="_blank">
-        <img class="h-full object-cover" src="{{ 'assets/img/pelis.png' | url }}" alt="proyect" />
-        <div class="absolute bottom-0 px-4 py-10 bg-gradient-to-t from-black w-full">
-          <p class="text-white font-semibold text-3xl">Buscador de peliculas</p>
-        </div>
-      </a>
-    </div>
-    <div class="proyect relative">
-      <a href="https://dreamy-minsky-045cb7.netlify.app/" target="_blank">
-        <img class="h-full object-cover" src="{{ 'assets/img/formulario.png' | url }}" alt="proyect" />
-        <div class="absolute bottom-0 px-4 py-10 bg-gradient-to-t from-black w-full">
-          <p class="text-white font-semibold text-3xl">Fomulario de registro</p>
-        </div>
-      </a>
-    </div>
-    <div class="proyect relative">
-      <a href="https://eliezer516.github.io/mdprev/" target="_blank">
-        <img class="h-full object-cover" src="{{ 'assets/img/mdprev.png' | url }}" alt="proyect" />
-        <div class="absolute bottom-0 px-4 py-10 bg-gradient-to-t from-black w-full">
-          <p class="text-white font-semibold text-3xl">Mdprev</p>
-        </div>
-      </a>
-    </div>
-    <div class="proyect relative">
-      <a href="https://www.npmjs.com/package/object-extractor" target="_blank">
-        <img class="h-full object-cover" src="{{ 'assets/img/object.png' | url }}" alt="proyect" />
-        <div class="absolute bottom-0 px-4 py-10 bg-gradient-to-t from-black w-full">
-          <p class="text-white font-semibold text-3xl">object-extractor </p>
-        </div>
-      </a>
-    </div>
-    <div class="proyect relative">
-      <a href="https://stoic-ardinghelli-e3cf6c.netlify.app/" target="_blank">
-        <img class="h-full object-cover" src="{{ 'assets/img/inventario.png' | url }}" alt="proyect" />
-        <div class="absolute bottom-0 px-4 py-10 bg-gradient-to-t from-black w-full">
-          <p class="text-white font-semibold text-3xl">Control de inventario </p>
-        </div>
-      </a>
-    </div>
+    {% for proyecto in proyectos %}
+      <div class="proyect relative">
+        <a href="{{ proyecto.url }}" target="_blank">
+          <img class="h-full object-cover" src="{{ proyecto.img | url }}" alt="{{proyecto.title}}" />
+          <div class="absolute bottom-0 px-4 py-10 bg-gradient-to-t from-black w-full">
+            <p class="text-white font-semibold text-3xl">{{ proyecto.title }}</p>
+          </div>
+        </a>
+      </div>
+    {% endfor %}
   </div>
 </section>
