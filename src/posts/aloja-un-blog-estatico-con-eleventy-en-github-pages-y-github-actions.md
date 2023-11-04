@@ -29,7 +29,7 @@ El archivo lo ubicaras aquí: `.github/workflows/build.yml`.
 Una vez que lo tengas colocaras en su interior el siguiente codigo.
 
 
-```yml
+```yaml
 # Flujo de trabajo simple para implementar contenido estático en Github Pages
 name: Implementar contenido estático a Pages
 
@@ -94,7 +94,7 @@ ___
 Si no lo quieres utilizar solo debes modificar las siguientes lineas:
 
 
-```diff-yml diff-highlight
+```diff-yaml
 # ...
 -     - uses: pnpm/action-setup@v2
 -       with:

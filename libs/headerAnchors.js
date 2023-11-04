@@ -40,8 +40,8 @@ const markdownItAnchorOptions = {
 };
 
 /* Markdown Overrides */
-let markdownLibrary = markdownIt().use(markdownItAnchor, markdownItAnchorOptions);
+// let markdownLibrary = markdownIt().use(markdownItAnchor, markdownItAnchorOptions);
 
 
-module.exports = markdownLibrary
+module.exports = {markdownItAnchor, markdownItAnchorOptions}
 
