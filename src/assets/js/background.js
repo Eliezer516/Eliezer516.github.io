@@ -23,8 +23,10 @@ window.addEventListener("DOMContentLoaded", () => {
   }
   
   generateBackground()
-  
+  backgroundContainer.addEventListener("mouseenter", () => {
+    generateBackground() 
+  })
   backgroundContainer.onclick = () => {
-    generateBackground()
+    generateBackground() 
   }
 })

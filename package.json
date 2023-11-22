@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "npm-run-all -p css:watch 11ty:watch",
     "build": "pnpm run css:build && npm run 11ty:build",
-    "11ty:watch": "eleventy --serve --quiet --incremental",
+    "11ty:watch": "eleventy --serve --quiet",
     "11ty:build": "eleventy --quiet",
     "css:watch": "tailwindcss -i ./src/assets/css/main.css -o ./dist/assets/css/main.css --watch --postcss",
     "css:build": "tailwindcss -i ./src/assets/css/main.css -o ./dist/assets/css/main.css --postcss"
