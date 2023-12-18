@@ -10,11 +10,12 @@ const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 
 module.exports = function(eleventyConfig) {
-  // eleventyConfig.setWatchThrottleWaitTime(3000)
+  eleventyConfig.setWatchThrottleWaitTime(3000)
 
   eleventyConfig.setLibrary("md", markdownIt().use(markdownItAnchor, markdownItAnchorOptions))
   
   eleventyConfig.addWatchTarget("./src/assets/js");
+  eleventyConfig.addWatchTarget("./src/assets/css");
   
   eleventyConfig.addPassthroughCopy('./src/assets/js');
   eleventyConfig.addPassthroughCopy('./src/assets/img');

@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 .icon {
-  @apply w-6 md:w-12 mr-2 relative opacity-0;
+  @apply w-8 md:w-12 mr-2 relative opacity-0;
   right: 10px;
 }
 
 .container {
   width: 100%;
-  max-width: 1240px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -39,6 +39,5 @@
 
 .proyects {
   display: grid;
-  grid-auto-rows: auto;
   grid-template-columns: repeat(auto-fill, minmax(206px, 1fr));
 }

@@ -11,10 +11,10 @@ window.addEventListener("DOMContentLoaded", () => {
     anime({
       targets: '.backgroundBlock',
       translateX: () => {
-        return anime.random(-300, 300)
+        return anime.random(-350, 350)
       },
       translateY: () => {
-        return anime.random(-300, 300)
+        return anime.random(-350, 350)
       },
       scale: () => {
         return anime.random(1, 2)
