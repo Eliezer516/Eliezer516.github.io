@@ -34,6 +34,10 @@
   url: "https://cosas-por-hacer.netlify.app/",
   title: "To-Do app",
   img: "/assets/img/todo.png"
+}, {
+  url: "https://travel-landing-page.onrender.com/",
+  title: "Travel Landing Page",
+  img: "/assets/img/landing.png"
 }] %}
 
 
@@ -45,8 +49,8 @@
     {% for proyecto in proyectos %}
       <div class="proyect relative">
         <a href="{{ proyecto.url }}" target="_blank">
-          <img class="h-full object-cover" src="{{ proyecto.img | url }}" alt="{{proyecto.title}}" />
-          <div class="absolute bottom-0 px-4 py-10 bg-gradient-to-t from-black w-full">
+          <img class="h-full object-cover rounded-xl" src="{{ proyecto.img | url }}" alt="{{proyecto.title}}" />
+          <div class="absolute bottom-0 px-4 py-10 bg-gradient-to-t from-black w-full rounded-xl">
             <p class="text-white font-semibold text-3xl">{{ proyecto.title }}</p>
           </div>
         </a>

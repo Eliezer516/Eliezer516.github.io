@@ -3,7 +3,7 @@
       <h2 class="text-4xl md:text-6xl font-semibold">Ultimos posts</h2>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-20">
-      <img class="h-full hidden md:block object-cover" src="{{ 'assets/img/redaccion.jpg' | url }}" alt="proyect" />
+      <img class="h-full hidden md:block object-cover rounded-xl" src="{{ 'assets/img/redaccion.jpg' | url }}" alt="proyect" />
       <div class="flex flex-col justify-around">
         <div class="posts-list">
           {% for post in collections.post | reverse %}
