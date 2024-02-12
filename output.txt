@@ -1,0 +1,27 @@
+diff --git a/.eleventy.js b/.eleventy.js
+index 84f17fe..dadf56e 100644
+--- a/.eleventy.js
++++ b/.eleventy.js
+@@ -28,11 +28,11 @@ module.exports = function(eleventyConfig) {
+ 
+ 
+   eleventyConfig.addPlugin(metagen)
+-  // eleventyConfig.addPlugin(syntaxHighlight, {
+-  //   preAttributes: {
+-  //     class: ({ language }) => `not-prose group/code animate-fade rounded-lg bg-slate-900/80 language-${language || 'plain'}`,
+-  //   }
+-  // })
++  eleventyConfig.addPlugin(syntaxHighlight, {
++    preAttributes: {
++      class: ({ language }) => `not-prose group/code animate-fade rounded-lg bg-slate-900/80 language-${language || 'plain'}`,
++    }
++  })
+   eleventyConfig.addPlugin(emojiReadTime, {
+     label: "Minutos de lectura"
+   })
+diff --git a/output.txt b/output.txt
+index 5309ab4..e69de29 100644
+--- a/output.txt
++++ b/output.txt
+@@ -1 +0,0 @@
+-git diff HEAD 

@@ -12,7 +12,12 @@ const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 module.exports = function(eleventyConfig) {
   eleventyConfig.setWatchThrottleWaitTime(3000)
 
-  eleventyConfig.setLibrary("md", markdownIt().use(markdownItAnchor, markdownItAnchorOptions))
+  eleventyConfig.setLibrary("md", markdownIt({
+    highlight: (code, language) => {
+      const html = glow(code, { language })
+      return `<pre glow>${ html }</pre>`
+    }
+  }).use(markdownItAnchor, markdownItAnchorOptions))
   
   eleventyConfig.addWatchTarget("./src/assets/js");
   eleventyConfig.addWatchTarget("./src/assets/css");

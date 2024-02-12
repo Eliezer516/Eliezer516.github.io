@@ -1,53 +1,80 @@
 {% set proyectos = [{
   url: "https://eliezer516.github.io/minicode/",
   title: "Minicode",
-  img: "/assets/img/minicode.png"
+  img: "/assets/img/minicode.png",
+  data_item: "app"
 }, {
   url: "https://eliezer516.github.io/minijs/",
   title: "Minijs",
-  img:"/assets/img/minijs.png"
+  img:"/assets/img/minijs.png",
+  data_item: "app"
 }, {
   url: "https://inverbapi3.onrender.com/",
   title: "Escritorio contable",
-  img: "/assets/img/escritorio.png"
+  img: "/assets/img/escritorio.png",
+  data_item: "website"
 }, {
   url: "https://eliezer516.github.io/buscador-de-pelis-v2/",
   title: "Buscador de peliculas",
-  img: "/assets/img/pelis.png"
+  img: "/assets/img/pelis.png",
+  data_item: "app"
 }, {
   url: "https://dreamy-minsky-045cb7.netlify.app/",
   title: "Fomulario de registro",
-  img: "/assets/img/formulario.png"
+  img: "/assets/img/formulario.png",
+  data_item: "website"
 }, {
   url: "https://eliezer516.github.io/mdprev/",
   title: "Mdprev",
-  img: "/assets/img/mdprev.png"
+  img: "/assets/img/mdprev.png",
+  data_item: "app"
 }, {
   url: "https://www.npmjs.com/package/object-extractor",
   title: "object-extractor",
-  img: "/assets/img/object.png"
+  img: "/assets/img/object.png",
+  data_item: "library"
 }, {
   url: "https://stoic-ardinghelli-e3cf6c.netlify.app/",
   title: "Control de inventario",
-  img: "/assets/img/inventario.png"
+  img: "/assets/img/inventario.png",
+  data_item: "app"
 }, {
   url: "https://cosas-por-hacer.netlify.app/",
   title: "To-Do app",
-  img: "/assets/img/todo.png"
+  img: "/assets/img/todo.png",
+  data_item: "app"
 }, {
   url: "https://travel-landing-page.onrender.com/",
   title: "Travel Landing Page",
-  img: "/assets/img/landing.png"
+  img: "/assets/img/landing.png",
+  data_item: "website"
+}] %}
+
+{% set filterProyects = [{
+  name: "Website",
+  data_filter: "website"
+}, {
+  name: "App",
+  data_filter: "app"
+}, {
+  name: "Libreria",
+  data_filter: "library"
 }] %}
 
 
 <section class="bg-slate-800 p-16">
   <div class="mb-10">
     <h2 class="text-4xl md:text-6xl font-semibold text-white">Mis trabajos</h2>
+    <ul class="flex flex-wrap mb-1 my-4">
+      <li class="filter-item bg-slate-900 text-white rounded-lg px-6 py-2 m-1" data-filter="all">Todo</li>
+      {% for filter in filterProyects %}
+        <li class="filter-item bg-slate-100 rounded-lg px-6 py-2 m-1" data-filter="{{ filter.data_filter }}">{{ filter.name }}</li>
+      {% endfor %}
+    </ul>
   </div>
   <div class="proyects gap-6">
     {% for proyecto in proyectos %}
-      <div class="proyect relative">
+      <div class="proyect relative" data-item="{{ proyecto.data_item }}">
         <a href="{{ proyecto.url }}" target="_blank">
           <img class="h-full object-cover rounded-xl" src="{{ proyecto.img | url }}" alt="{{proyecto.title}}" />
           <div class="absolute bottom-0 px-4 py-10 bg-gradient-to-t from-black w-full rounded-xl">
