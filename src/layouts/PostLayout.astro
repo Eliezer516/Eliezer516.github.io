@@ -1,0 +1,47 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  date: Date;
+  imgUrl?: string;
+}
+
+const { title, description, date, imgUrl } = Astro.props;
+
+function formatDate(d: Date): string {
+  return d.toLocaleDateString('es-ES', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+}
+
+function calculateReadingTime(content: string): string {
+  const wordsPerMinute = 200;
+  const words = content.split(/\s+/).length;
+  const minutes = Math.ceil(words / wordsPerMinute);
+  return `${minutes} min de lectura`;
+}
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="container-main py-section">
+    <header class="max-w-[75ch] mx-auto mb-12">
+      <time class="text-sm text-ink-tertiary" datetime={date.toISOString()}>
+        {formatDate(date)}
+      </time>
+      <h1 class="mt-4 text-heading-xl">{title}</h1>
+      <p class="mt-4 text-ink-secondary text-lg">{description}</p>
+    </header>
+    {imgUrl && (
+      <div class="max-w-[75ch] mx-auto mb-12">
+        <img src={imgUrl} alt={title} class="w-full rounded-lg" />
+      </div>
+    )}
+    <div class="max-w-[75ch] mx-auto prose prose-lg prose-headings:text-ink-primary prose-p:text-ink-secondary prose-a:text-ink-primary prose-strong:text-ink-primary prose-code:text-ink-primary prose-pre:bg-ink-primary prose-pre:text-canvas">
+      <slot />
+    </div>
+  </article>
+</BaseLayout>

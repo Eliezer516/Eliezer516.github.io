@@ -1,0 +1,94 @@
+---
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+import "@fontsource/inter/600.css";
+import "../assets/css/main.css";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = "Portafolio personal de Yonaiker Barreto - Maquetador web y redactor digital",
+} = Astro.props;
+const currentPath = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#FFFFFF" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen bg-canvas text-ink-primary">
+    <header class="border-b border-border">
+      <nav class="container-main flex items-center justify-between h-16">
+        <a
+          href="/"
+          class="font-medium text-ink-primary hover:text-ink-secondary transition-colors"
+        >
+          Yonaiker Barreto
+        </a>
+        <div class="flex items-center gap-8">
+          <a
+            href="/"
+            class={`text-sm font-medium transition-colors ${currentPath === "/" ? "text-ink-primary" : "text-ink-tertiary hover:text-ink-secondary"}`}
+          >
+            Inicio
+          </a>
+          <a
+            href="/posts/"
+            class={`text-sm font-medium transition-colors ${currentPath.startsWith("/posts") ? "text-ink-primary" : "text-ink-tertiary hover:text-ink-secondary"}`}
+          >
+            Blog
+          </a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="border-t border-border py-8">
+      <div
+        class="container-main flex flex-col md:flex-row items-center justify-between gap-4"
+      >
+        <p class="text-sm text-ink-tertiary">
+          &copy; {new Date().getFullYear()} Yonaiker Barreto
+        </p>
+        <div class="flex items-center gap-6">
+          <a
+            href="https://github.com/Eliezer516"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-sm text-ink-tertiary hover:text-ink-secondary transition-colors"
+          >
+            GitHub
+          </a>
+          <a
+            href="mailto:yonaikereliezerbarretomaterano@gmail.com"
+            class="text-sm text-ink-tertiary hover:text-ink-secondary transition-colors"
+          >
+            Contacto
+          </a>
+        </div>
+      </div>
+    </footer>
+    <script type="module">
+      import MouseFollower from "mouse-follower";
+      import { gsap } from "gsap";
+      import 'mouse-follower/dist/mouse-follower.min.css'
+
+      MouseFollower.registerGSAP(gsap);
+
+      const cursor = new MouseFollower();
+    </script>
+  </body>
+</html>

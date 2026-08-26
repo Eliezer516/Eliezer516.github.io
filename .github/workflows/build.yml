@@ -1,53 +1,49 @@
-# Flujo de trabajo simple para implementar contenido estático en Github Pages
-name: Implementar contenido estático a Pages
+name: Deploy to GitHub Pages
 
 on:
-  # Se ejecuta en anotaciones dirigidas a la rama predeterminada
   push:
     branches: ['main']
-
-  # Te permite ejecutar este flujo de trabajo manualmente desde la pestaña Acciones
   workflow_dispatch:
 
-# Establece los permisos de GITHUB_TOKEN para permitir la implementación en GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Permite una implementación simultánea
 concurrency:
   group: 'pages'
   cancel-in-progress: true
 
 jobs:
-  # Trabajo de implementación único ya que solo estamos implementando
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v2
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
         with:
-          version: 7
+          version: 9
       - name: Set up Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
           cache: 'pnpm'
       - name: Install dependencies
         run: pnpm install
       - name: Build
         run: pnpm run build
       - name: Setup Pages
-        uses: actions/configure-pages@v3
+        uses: actions/configure-pages@v5
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
-          # Subir repositorio dist
           path: './dist'
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4

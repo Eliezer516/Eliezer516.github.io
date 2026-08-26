@@ -1,0 +1,51 @@
+---
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('posts'))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+
+function formatDate(date: Date): string {
+  return date.toLocaleDateString('es-ES', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+}
+---
+
+<section class="container-main py-section">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+    <div class="order-2 md:order-1">
+      <img
+        src="/assets/img/redaccion.jpg"
+        alt="Escritura y blog"
+        class="w-full rounded-lg object-cover hidden md:block"
+      />
+    </div>
+    <div class="order-1 md:order-2">
+      <h2 class="text-heading-lg mb-8">Ultimos posts</h2>
+      <div class="space-y-6">
+        {posts.map((post) => (
+          <article class="group">
+            <a href={`/posts/${post.id.replace(/\.md$/, '')}/`} class="block">
+              <h3 class="text-lg font-medium text-ink-primary group-hover:text-ink-secondary transition-colors mb-1">
+                {post.data.title}
+              </h3>
+              <p class="text-ink-secondary text-sm mb-1">
+                {post.data.desc}
+              </p>
+              <time class="text-xs text-ink-tertiary" datetime={post.data.date.toISOString()}>
+                {formatDate(post.data.date)}
+              </time>
+            </a>
+          </article>
+        ))}
+      </div>
+      <a href="/posts/" class="inline-block mt-8 text-sm font-medium text-ink-tertiary hover:text-ink-primary transition-colors">
+        Todos los posts &rarr;
+      </a>
+    </div>
+  </div>
+</section>

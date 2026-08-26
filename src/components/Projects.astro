@@ -1,0 +1,77 @@
+---
+import { projects, filters } from '../data/projects';
+---
+
+<section class="bg-fill-hover">
+  <div class="container-main py-section">
+    <div class="mb-12">
+      <h2 class="text-heading-lg mb-6">Mis trabajos</h2>
+      <div class="flex flex-wrap gap-2" id="project-filters">
+        {filters.map((filter) => (
+          <button
+            class={`filter-btn px-4 py-2 text-sm font-medium rounded border transition-colors ${
+              filter.value === 'all'
+                ? 'bg-ink-primary text-canvas border-ink-primary'
+                : 'bg-transparent text-ink-secondary border-border hover:border-border-strong hover:text-ink-primary'
+            }`}
+            data-filter={filter.value}
+          >
+            {filter.name}
+          </button>
+        ))}
+      </div>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
+      {projects.map((project) => (
+        <a
+          href={project.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="project-card group block"
+          data-category={project.category}
+        >
+          <div class="aspect-video bg-canvas border border-border rounded-lg overflow-hidden mb-3 transition-colors group-hover:border-border-strong">
+            <img
+              src={project.img}
+              alt={project.title}
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <h3 class="text-sm font-medium text-ink-primary group-hover:text-ink-secondary transition-colors">
+            {project.title}
+          </h3>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+
+        filterBtns.forEach((b) => {
+          b.classList.remove('bg-ink-primary', 'text-canvas', 'border-ink-primary');
+          b.classList.add('bg-transparent', 'text-ink-secondary', 'border-border');
+        });
+
+        btn.classList.remove('bg-transparent', 'text-ink-secondary', 'border-border');
+        btn.classList.add('bg-ink-primary', 'text-canvas', 'border-ink-primary');
+
+        projectCards.forEach((card) => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+  });
+</script>

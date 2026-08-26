@@ -2,42 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
-.icon {
-  @apply w-8 md:w-12 mr-2 relative opacity-0;
-  right: 10px;
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-canvas text-ink-primary;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-medium tracking-tight;
+  }
+
+  h1 {
+    @apply text-heading-xl;
+  }
+
+  h2 {
+    @apply text-heading-lg;
+  }
+
+  h3 {
+    @apply text-heading;
+  }
+
+  p {
+    @apply text-body text-ink-secondary;
+  }
+
+  a {
+    @apply transition-colors duration-200;
+  }
+
+  img {
+    @apply max-w-full h-auto;
+  }
+
+  ::selection {
+    @apply bg-ink-primary text-canvas;
+  }
 }
 
-.container {
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-}
+@layer components {
+  .container-main {
+    @apply mx-auto px-6 md:px-16 lg:px-[64px] max-w-[1400px];
+  }
 
-.backgroundBlock {
-  position: absolute;
-  padding: 0%;
-  width: 50px;
-  height: 50px;
-  background: #444;
-  box-shadow: 10px 10px 30px rgba(0,0,0,0.5);
-}
+  .section-padding {
+    @apply py-section md:py-section;
+  }
 
-.backgroundBlock:nth-child(3n + 1) {
-  background: #444;
-}
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-ink-primary text-canvas font-medium rounded transition-colors duration-200 hover:bg-ink-primary/90;
+  }
 
-.backgroundBlock:nth-child(3n + 2) {
-  background: #fff;
-}
+  .btn-neutral {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-transparent text-ink-primary font-medium border border-border rounded transition-colors duration-200 hover:bg-fill-hover;
+  }
 
-.backgroundBlock:nth-child(3n + 3) {
-  background: #03a9f4;
-}
-.copy-btn {
-  @apply absolute right-4 top-4 border rounded-md p-2 bg-white/80 hover:bg-white text-slate-800 hover:text-slate-900 opacity-0 group-hover/code:opacity-100 transition-opacity transition-colors
-}
+  .input-field {
+    @apply w-full px-4 py-3 bg-canvas border border-border rounded text-ink-primary placeholder:text-ink-tertiary focus:outline-none focus:border-border-strong transition-colors duration-200;
+  }
 
-.proyects {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(206px, 1fr));
+  .label {
+    @apply block text-label text-ink-primary mb-2;
+  }
 }

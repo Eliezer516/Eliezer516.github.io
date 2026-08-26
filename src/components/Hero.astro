@@ -1,0 +1,46 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const techIcons = [
+  { name: 'HTML5', icon: 'logos:html-5' },
+  { name: 'CSS3', icon: 'logos:css-3' },
+  { name: 'JavaScript', icon: 'logos:javascript' },
+  { name: 'React', icon: 'logos:react' },
+  { name: 'Svelte', icon: 'logos:svelte-icon' },
+  { name: 'Tailwind CSS', icon: 'logos:tailwindcss-icon' },
+];
+---
+
+<section class="container-main py-section relative">
+  <div id="particles-js" class="absolute inset-0 w-full h-full pointer-events-none"></div>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative z-10">
+    <div class="order-2 md:order-1">
+      <div class="flex items-center gap-3 mb-8">
+        {techIcons.map((iconItem) => (
+          <div class="w-8 h-8 text-ink-tertiary transition-colors hover:text-ink-primary" title={iconItem.name}>
+            <Icon name={iconItem.icon} class="w-full h-full" />
+          </div>
+        ))}
+      </div>
+      <h1 class="text-heading-xl mb-6">
+        Lleva tus diseños<br />a la realidad
+      </h1>
+      <div class="mb-8">
+        <h2 class="text-heading-lg text-ink-primary">Yonaiker Barreto</h2>
+        <p class="text-ink-secondary text-lg">Maquetador web y redactor digital</p>
+      </div>
+      <a href="#about" class="btn-primary">
+        Conoce mas
+      </a>
+    </div>
+    <div class="order-1 md:order-2">
+      <div class="aspect-square bg-fill-hover rounded-lg flex items-center justify-center">
+        <div class="grid grid-cols-3 gap-2 opacity-20">
+          {Array.from({ length: 9 }).map(() => (
+            <div class="w-16 h-16 bg-ink-primary rounded"></div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

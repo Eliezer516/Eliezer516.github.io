@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('posts'))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+function formatDate(date: Date): string {
+  return date.toLocaleDateString('es-ES', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+}
+---
+
+<BaseLayout title="Blog - Yonaiker Barreto" description="Articulos sobre tecnologia, desarrollo web y programacion.">
+  <section class="container-main py-section">
+    <header class="max-w-[75ch] mx-auto mb-16">
+      <h1 class="text-heading-xl mb-6">Todos los posts</h1>
+      <p class="text-ink-secondary text-lg">
+        Ademas de ser desarrollador web, tambien tengo experiencia como redactor digital. Me apasiona escribir sobre tecnologia, negocios, marketing digital y otros temas relevantes para la web.
+      </p>
+    </header>
+    <div class="max-w-[75ch] mx-auto">
+      <div class="space-y-8">
+        {posts.map((post) => (
+          <article class="group border-b border-border pb-8">
+            <a href={`/posts/${post.id.replace(/\.md$/, '')}/`} class="block">
+              <time class="text-sm text-ink-tertiary" datetime={post.data.date.toISOString()}>
+                {formatDate(post.data.date)}
+              </time>
+              <h2 class="text-xl font-medium text-ink-primary group-hover:text-ink-secondary transition-colors mt-2 mb-2">
+                {post.data.title}
+              </h2>
+              <p class="text-ink-secondary">
+                {post.data.desc}
+              </p>
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
