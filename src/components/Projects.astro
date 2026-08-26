@@ -5,8 +5,11 @@ import { projects, filters } from '../data/projects';
 <section class="bg-fill-hover">
   <div class="container-main py-section">
     <div class="mb-12">
-      <h2 class="text-heading-lg mb-6">Mis trabajos</h2>
-      <div class="flex flex-wrap gap-2" id="project-filters">
+      <h2 class="text-heading-lg mb-6">Proyectos resueltos</h2>
+      <p class="text-ink-secondary max-w-2xl">
+        Cada proyecto nació de una necesidad concreta: conseguir clientes, ahorrar tiempo, eliminar procesos manuales o validar una idea rápido.
+      </p>
+      <div class="flex flex-wrap gap-2 mt-6" id="project-filters">
         {filters.map((filter) => (
           <button
             class={`filter-btn px-4 py-2 text-sm font-medium rounded border transition-colors ${
@@ -37,9 +40,12 @@ import { projects, filters } from '../data/projects';
               class="w-full h-full object-cover"
             />
           </div>
-          <h3 class="text-sm font-medium text-ink-primary group-hover:text-ink-secondary transition-colors">
+          <h3 class="text-sm font-medium text-ink-primary group-hover:text-ink-secondary transition-colors mb-1">
             {project.title}
           </h3>
+          <p class="text-xs text-ink-tertiary line-clamp-2">
+            {project.description}
+          </p>
         </a>
       ))}
     </div>

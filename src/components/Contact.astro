@@ -5,7 +5,10 @@
   <div class="container-main py-section">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
       <div>
-        <h2 class="text-heading-lg mb-8">Contactate conmigo</h2>
+        <h2 class="text-heading-lg mb-4">Hablemos de tu proyecto</h2>
+        <p class="text-ink-secondary mb-8">
+          ¿Necesitas una landing page que convierta? ¿Quieres automatizar algo que haces a mano cada semana? ¿Tienes una idea y quieres validarla rápido sin gastar de más? Cuéntame qué necesitas y te digo cómo podemos resolverlo.
+        </p>
         <form
           id="contact-form"
           class="space-y-6"
@@ -33,12 +36,13 @@
             />
           </div>
           <div>
-            <label for="message" class="label">Mensaje</label>
+            <label for="message" class="label">¿Qué necesitas?</label>
             <textarea
               id="message"
               name="mensaje"
               rows="5"
               class="input-field resize-none"
+              placeholder="Ej: Quiero una landing para mi negocio de fontanería, necesito automatizar el envío de presupuestos, tengo una idea de app y quiero un MVP..."
               required
             ></textarea>
           </div>
@@ -46,17 +50,17 @@
             Enviar
           </button>
           <input type="hidden" name="_next" value="https://eliezer516.github.io/gracias/" />
-          <input type="hidden" name="_subject" value="Solicitud de contratacion" />
+          <input type="hidden" name="_subject" value="Nuevo proyecto: landing / automatización / herramienta" />
           <input type="hidden" name="_captcha" value="false" />
         </form>
       </div>
       <div class="flex flex-col justify-center">
         <div class="space-y-4">
           <p class="text-ink-secondary">
-            Estoy disponible para proyectos de maquetacion web, desarrollo frontend y redaccion digital.
+            <strong>Especialidades:</strong> Landing pages, automatizaciones con n8n/Make, MVPs, scrapers, dashboards, integraciones API.
           </p>
           <p class="text-ink-secondary">
-            No dudes en contactarme para cualquier consulta o propuesta de colaboracion.
+            Respondo en menos de 24h. Sin compromiso, solo para ver si encajamos.
           </p>
         </div>
       </div>
