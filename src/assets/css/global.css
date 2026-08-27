@@ -1,72 +1,181 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+@theme {
+  /* Colores - Sistema escandinavo */
+  --color-canvas: #FFFFFF;
+  --color-surface: #FFFFFF;
+  --color-ink-primary: #000000;
+  --color-ink-secondary: rgb(0 0 0 / 64%);
+  --color-ink-tertiary: rgb(0 0 0 / 44%);
+  --color-border: rgb(0 0 0 / 10%);
+  --color-border-strong: rgb(0 0 0 / 18%);
+  --color-fill-hover: rgb(0 0 0 / 5%);
+  --color-fill-pressed: rgb(0 0 0 / 9%);
+
+  /* Tipografía */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --text-body: 1rem;
+  --text-body--line-height: 1.5;
+  --text-label: 0.875rem;
+  --text-label--line-height: 1.5;
+  --text-label--font-weight: 500;
+  --text-heading: 2rem;
+  --text-heading--line-height: 1.1;
+  --text-heading--font-weight: 500;
+  --text-heading--letter-spacing: -0.02em;
+  --text-heading-lg: 3rem;
+  --text-heading-lg--line-height: 1.05;
+  --text-heading-lg--font-weight: 500;
+  --text-heading-lg--letter-spacing: -0.02em;
+  --text-heading-xl: 4rem;
+  --text-heading-xl--line-height: 1.05;
+  --text-heading-xl--font-weight: 500;
+  --text-heading-xl--letter-spacing: -0.02em;
+
+  /* Espaciado */
+  --spacing-section: 96px;
+  --spacing-section-sm: 64px;
+
+  /* Border radius */
+  --radius-default: 8px;
+  --radius-sm: 6px;
+  --radius-lg: 12px;
+}
+
 @layer base {
   html {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   body {
-    @apply bg-canvas text-ink-primary;
+    background-color: var(--color-canvas);
+    color: var(--color-ink-primary);
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-medium tracking-tight;
+    font-weight: 500;
+    letter-spacing: -0.02em;
   }
 
   h1 {
-    @apply text-heading-xl;
+    font-size: var(--text-heading-xl);
+    line-height: 1.05;
   }
 
   h2 {
-    @apply text-heading-lg;
+    font-size: var(--text-heading-lg);
+    line-height: 1.05;
   }
 
   h3 {
-    @apply text-heading;
+    font-size: var(--text-heading);
+    line-height: 1.1;
   }
 
   p {
-    @apply text-body text-ink-secondary;
+    font-size: var(--text-body);
+    line-height: 1.5;
+    color: var(--color-ink-secondary);
   }
 
   a {
-    @apply transition-colors duration-200;
+    transition: color 200ms ease;
   }
 
   img {
-    @apply max-w-full h-auto;
+    max-width: 100%;
+    height: auto;
   }
 
   ::selection {
-    @apply bg-ink-primary text-canvas;
+    background-color: var(--color-ink-primary);
+    color: var(--color-canvas);
   }
 }
 
-@layer components {
-  .container-main {
-    @apply mx-auto px-6 md:px-16 lg:px-[64px] max-w-[1400px];
+@utility container-main {
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+  @media (min-width: 768px) {
+    padding-inline: 4rem;
   }
+  @media (min-width: 1024px) {
+    padding-inline: 64px;
+  }
+  max-width: 1400px;
+}
 
-  .section-padding {
-    @apply py-section md:py-section;
+@utility section-padding {
+  padding-block: var(--spacing-section);
+  @media (min-width: 768px) {
+    padding-block: var(--spacing-section);
   }
+}
 
-  .btn-primary {
-    @apply inline-flex items-center justify-center px-6 py-3 bg-ink-primary text-canvas font-medium rounded transition-colors duration-200 hover:bg-ink-primary/90;
+@utility btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-ink-primary);
+  color: var(--color-canvas);
+  font-weight: 500;
+  border-radius: var(--radius-default);
+  transition: background-color 200ms ease;
+}
+@variant hover {
+  .btn-primary:hover {
+    background-color: color-mix(in oklab, var(--color-ink-primary) 90%, transparent);
   }
+}
 
-  .btn-neutral {
-    @apply inline-flex items-center justify-center px-6 py-3 bg-transparent text-ink-primary font-medium border border-border rounded transition-colors duration-200 hover:bg-fill-hover;
+@utility btn-neutral {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  background-color: transparent;
+  color: var(--color-ink-primary);
+  font-weight: 500;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-default);
+  transition: background-color 200ms ease, border-color 200ms ease;
+}
+@variant hover {
+  .btn-neutral:hover {
+    background-color: var(--color-fill-hover);
   }
+}
 
-  .input-field {
-    @apply w-full px-4 py-3 bg-canvas border border-border rounded text-ink-primary placeholder:text-ink-tertiary focus:outline-none focus:border-border-strong transition-colors duration-200;
+@utility input-field {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: var(--color-canvas);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-default);
+  color: var(--color-ink-primary);
+  transition: border-color 200ms ease;
+}
+@variant focus {
+  .input-field:focus {
+    outline: none;
+    border-color: var(--color-border-strong);
   }
+}
+@utility input-field-placeholder {
+  &::placeholder {
+    color: var(--color-ink-tertiary);
+  }
+}
 
-  .label {
-    @apply block text-label text-ink-primary mb-2;
-  }
+@utility label {
+  display: block;
+  font-size: var(--text-label);
+  line-height: 1.5;
+  font-weight: 500;
+  color: var(--color-ink-primary);
+  margin-bottom: 0.5rem;
 }
