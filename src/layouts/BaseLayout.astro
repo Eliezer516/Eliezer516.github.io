@@ -81,14 +81,48 @@ const currentPath = Astro.url.pathname;
         </div>
       </div>
     </footer>
-    <script type="module">
+    <script>
       import MouseFollower from "mouse-follower";
       import { gsap } from "gsap";
-      import 'mouse-follower/dist/mouse-follower.min.css'
+      import "mouse-follower/dist/mouse-follower.min.css";
 
       MouseFollower.registerGSAP(gsap);
 
       const cursor = new MouseFollower();
+    </script>
+    <script>
+      import Lenis from "lenis";
+
+      const reduceQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+      /* ---------- scroll suave (Lenis) ---------- */
+
+      let lenis = null;
+      let rafId = 0;
+
+      const raf = (time) => {
+        lenis?.raf(time);
+        rafId = requestAnimationFrame(raf);
+      };
+
+      const onAnchorClick = (event) => {
+        const anchor = event.target.closest('a[href^="#"]');
+        if (!anchor) return;
+        const href = anchor.getAttribute("href");
+        event.preventDefault();
+        if (!href || href === "#") return;
+        const target = document.querySelector(href);
+        if (target && lenis) lenis.scrollTo(target, { offset: -88 });
+      };
+
+      const startSmoothScroll = () => {
+        lenis = new Lenis({ duration: 1.15 });
+        rafId = requestAnimationFrame(raf);
+        document
+          .querySelectorAll('a[href^="#"]')
+          .forEach((a) => a.addEventListener("click", onAnchorClick));
+      };
+
+      startSmoothScroll();
     </script>
   </body>
 </html>

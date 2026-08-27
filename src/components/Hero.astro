@@ -10,37 +10,117 @@ const techIcons = [
   { name: 'Tailwind CSS', icon: 'logos:tailwindcss-icon' },
 ];
 ---
-
-<section class="container-main py-section relative">
-  <div id="particles-js" class="absolute inset-0 w-full h-full pointer-events-none"></div>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative z-10">
-    <div class="order-2 md:order-1">
-      <div class="flex items-center gap-3 mb-8">
+<style>
+  h1 {
+    font-size: 2rem;
+    font-size: clamp(2rem, 1.4rem + 3vw, 5rem);
+  }
+  h2 {
+    font-size: 2rem;
+    font-size: clamp(2rem, 1.8rem + 1vw, 3rem);
+}
+</style>
+<section class="py-section relative">
+  <div id="particles-js" class="absolute inset-0 top-0 left-0 w-full h-full pointer-events-none"></div>
+  <div class="relative z-10 container-main">
+    <div class="text-center">
+      <div class="flex items-center justify-center gap-3 mb-8">
         {techIcons.map((iconItem) => (
           <div class="w-8 h-8 text-ink-tertiary transition-colors hover:text-ink-primary" title={iconItem.name}>
             <Icon name={iconItem.icon} class="w-full h-full" />
           </div>
         ))}
       </div>
-      <h1 class="text-heading-xl mb-6">
-        Consigue clientes por Internet<br />con una landing que convierta
+      <h1 class="mb-6">
+        Consigue clientes por Internet con una landing que convierta
       </h1>
       <div class="mb-8">
-        <h2 class="text-heading-lg text-ink-primary">Yonaiker Barreto</h2>
+        <h2 class="text-heading-lg mb-8 text-ink-primary">Yonaiker Barreto</h2>
         <p class="text-ink-secondary text-lg">Creo landing pages rápidas y profesionales para pequeños negocios que quieren conseguir clientes por Internet</p>
       </div>
       <a href="#about" class="btn-primary">
         Conoce mas
       </a>
     </div>
-    <div class="order-1 md:order-2">
-      <div class="aspect-square bg-fill-hover rounded-lg flex items-center justify-center">
-        <div class="grid grid-cols-3 gap-2 opacity-20">
-          {Array.from({ length: 9 }).map(() => (
-            <div class="w-16 h-16 bg-ink-primary rounded"></div>
-          ))}
-        </div>
-      </div>
-    </div>
   </div>
 </section>
+
+<script>
+  import { tsParticles } from "@tsparticles/engine";
+  import { loadSlim } from "@tsparticles/slim";
+
+  (async () => {
+    await loadSlim(tsParticles);
+
+    await tsParticles.load({
+      id: "particles-js",
+      options: {
+        fullScreen: { enable: false }, // ← Importante: no pantalla completa, solo el div
+        background: {
+          color: {
+            value: "#ffffff" // Fondo oscuro del hero
+          }
+        },
+        particles: {
+          number: {
+            value: 200,
+            density: {
+              enable: true,
+            }
+          },
+          color: {
+            value: "#000000" // Azul claro para las partículas
+          },
+          shape: {
+            type: "circle"
+          },
+          size: {
+            value: { min: 1, max: 3 },
+            random: true
+          },
+          links: {
+            enable: true,
+            distance: 150,
+            color: "#000000",
+            opacity: 0.2,
+            width: 1
+          },
+          move: {
+            enable: true,
+            speed: 1.2,
+            direction: "none",
+            random: false,
+            straight: false,
+            outModes: {
+              default: "bounce"
+            }
+          }
+        },
+        interactivity: {
+          events: {
+            onHover: {
+              enable: true,
+              mode: "grab" // Al pasar el mouse, "agarrar" partículas cercanas
+            },
+            onClick: {
+              enable: true,
+              mode: "push" // Al hacer click, añadir partículas
+            }
+          },
+          modes: {
+            grab: {
+              distance: 200,
+              links: {
+                opacity: 0.5
+              }
+            },
+            push: {
+              quantity: 4
+            }
+          }
+        },
+        detectRetina: true
+      },
+    });
+  })();
+</script>
