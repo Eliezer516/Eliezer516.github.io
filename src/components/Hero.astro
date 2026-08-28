@@ -41,19 +41,17 @@ const techIcons = [
           ))
         } -->
       </div>
-      <h1 class="mb-6 leading-12 md:leading-24">
+      <h1 class="mb-6 inline-block leading-14 md:leading-24">
         Consigue clientes por Internet con una landing que convierta
       </h1>
       <div class="mb-8">
-        <h2 class="text-heading-lg mb-8 text-ink-primary opacity-0">
-          Yonaiker Barreto
-        </h2>
-        <p class="text-ink-secondary text-lg opacity-0">
+        <h2 class="text-heading-lg mb-8 text-ink-primary">Yonaiker Barreto</h2>
+        <p class="text-ink-secondary text-lg">
           Creo landing pages rápidas y profesionales para pequeños negocios que
           quieren conseguir clientes por Internet
         </p>
       </div>
-      <a href="#about" class="btn-primary opacity-0"> Conoce mas </a>
+      <a href="#about" class="btn-primary"> Conoce mas </a>
     </div>
   </div>
 </section>
@@ -139,23 +137,40 @@ const techIcons = [
 </script>
 
 <script>
-  import { animate, splitText, stagger } from "animejs";
+  import { gsap } from "gsap";
+  import { SplitText } from "gsap/SplitText";
+  gsap.registerPlugin(SplitText);
 
-  const { chars } = splitText("h1", {
-    chars: { wrap: "clip" },
-  });
+  document.fonts.ready.then(() => {
+    const split = SplitText.create("h1", {
+      type: "words, chars",
+      wordsClass: "palabra++",
+    });
 
-  animate(chars, {
-    y: [{ to: ["100%", "0%"] }],
-    duration: 750,
-    ease: "out(3)",
-    delay: stagger(50),
-  });
-  animate([".hero-copy h2", ".hero-copy P", ".hero-copy a"], {
-    opacity: 1,
-    y: [{ to: ["100%", "0%"] }],
-    duration: 750,
-    ease: "out(3)",
-    delay: 3000,
+    const tl = gsap.timeline();
+
+    tl.from(split.chars, {
+      y: 20,
+      autoAlpha: 0,
+      stagger: {
+        amount: 0.5,
+        from: "random",
+      },
+    })
+      .from(".hero-copy h2", {
+        y: 20,
+        autoAlpha: 0,
+        duration: 0.5,
+      })
+      .from(".hero-copy p", {
+        y: 20,
+        autoAlpha: 0,
+        duration: 0.5,
+      })
+      .from(".hero-copy a", {
+        y: 20,
+        autoAlpha: 0,
+        duration: 0.5,
+      });
   });
 </script>

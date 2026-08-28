@@ -44,12 +44,6 @@ const currentPath = Astro.url.pathname;
           >
             Inicio
           </a>
-          <a
-            href="/posts/"
-            class={`text-sm font-medium transition-colors ${currentPath.startsWith("/posts") ? "text-ink-primary" : "text-ink-tertiary hover:text-ink-secondary"}`}
-          >
-            Blog
-          </a>
         </div>
       </nav>
     </header>
@@ -92,47 +86,50 @@ const currentPath = Astro.url.pathname;
     </script>
     <script>
       import Lenis from "lenis";
+      import { ScrollTrigger } from "gsap/ScrollTrigger";
+      import { gsap } from "gsap";
       /* ---------- scroll suave (Lenis) ---------- */
 
-      let lenis: any;
-      let rafId = 0;
+      const lenis = new Lenis();
+      lenis.on("scroll", ScrollTrigger.update);
+      // Add Lenis's requestAnimationFrame (raf) method to GSAP's ticker
+      // This ensures Lenis's smooth scroll animation updates on each GSAP tick
+      gsap.ticker.add((time) => {
+        lenis.raf(time * 1000); // Convert time from seconds to milliseconds
+      });
 
-      const raf = (time: any) => {
-        lenis?.raf(time);
-        rafId = requestAnimationFrame(raf);
-      };
-
-      const onAnchorClick = (event: any) => {
-        const anchor = event.target.closest('a[href^="#"]');
-        if (!anchor) return;
-        const href = anchor.getAttribute("href");
-        event.preventDefault();
-        if (!href || href === "#") return;
-        const target = document.querySelector(href);
-        if (target && lenis) lenis.scrollTo(target, { offset: -88 });
-      };
-
-      const startSmoothScroll = () => {
-        lenis = new Lenis({ duration: 1.15, respectReducedMotion: false });
-        rafId = requestAnimationFrame(raf);
-        document
-          .querySelectorAll('a[href^="#"]')
-          .forEach((a) => a.addEventListener("click", onAnchorClick));
-      };
-
-      startSmoothScroll();
+      // Disable lag smoothing in GSAP to prevent any delay in scroll animations
+      gsap.ticker.lagSmoothing(0);
     </script>
-    <!-- <script>
-      import { utils, animate, onScroll } from 'animejs'
-      const [ container ] = utils.$("body")
-      animate(".reveal", {
-        y: "1rem",
-        duration: 0.5,
-        autoplay: onScroll({
-          container,
-          enter: 'bottom-=50 top',
-        })
-      })
-    </script> -->
+    <script>
+      import { gsap } from "gsap";
+      import { ScrollTrigger } from "gsap/ScrollTrigger";
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Usamos ScrollTrigger.batch para capturar los elementos por grupos visuales
+      ScrollTrigger.batch("h2", {
+        start: "top 95%", // Se activa cuando cada elemento toca el 85% de la pantalla
+
+        onEnter: (batch) => {
+          // 'batch' contiene solo los elementos que acaban de entrar al viewport
+          gsap.fromTo(
+            batch,
+            { opacity: 0, y: 50 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.8,
+              stagger: 0.15, // Aplica el stagger SOLO a los elementos visibles
+              overwrite: "auto",
+            },
+          );
+        },
+
+        onLeaveBack: (batch) => {
+          // Opcional: revierte la animación si el usuario sube con el scroll
+          gsap.to(batch, { opacity: 0, y: 50 });
+        },
+      });
+    </script>
   </body>
 </html>
