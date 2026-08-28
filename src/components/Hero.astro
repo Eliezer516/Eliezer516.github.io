@@ -1,15 +1,16 @@
 ---
-import { Icon } from 'astro-icon/components';
+import { Icon } from "astro-icon/components";
 
 const techIcons = [
-  { name: 'HTML5', icon: 'logos:html-5' },
-  { name: 'CSS3', icon: 'logos:css-3' },
-  { name: 'JavaScript', icon: 'logos:javascript' },
-  { name: 'React', icon: 'logos:react' },
-  { name: 'Svelte', icon: 'logos:svelte-icon' },
-  { name: 'Tailwind CSS', icon: 'logos:tailwindcss-icon' },
+  { name: "HTML5", icon: "logos:html-5" },
+  { name: "CSS3", icon: "logos:css-3" },
+  { name: "JavaScript", icon: "logos:javascript" },
+  { name: "React", icon: "logos:react" },
+  { name: "Svelte", icon: "logos:svelte-icon" },
+  { name: "Tailwind CSS", icon: "logos:tailwindcss-icon" },
 ];
 ---
+
 <style>
   h1 {
     font-size: 2rem;
@@ -18,29 +19,41 @@ const techIcons = [
   h2 {
     font-size: 2rem;
     font-size: clamp(2rem, 1.8rem + 1vw, 3rem);
-}
+  }
 </style>
 <section class="py-section relative">
-  <div id="particles-js" class="absolute inset-0 top-0 left-0 w-full h-full pointer-events-none"></div>
+  <div
+    id="particles-js"
+    class="absolute inset-0 top-0 left-0 w-full h-full pointer-events-none"
+  >
+  </div>
   <div class="relative z-10 container-main">
-    <div class="text-center">
+    <div class="text-center hero-copy">
       <div class="flex items-center justify-center gap-3 mb-8">
-        {techIcons.map((iconItem) => (
-          <div class="w-8 h-8 text-ink-tertiary transition-colors hover:text-ink-primary" title={iconItem.name}>
-            <Icon name={iconItem.icon} class="w-full h-full" />
-          </div>
-        ))}
+        <!-- {
+          techIcons.map((iconItem) => (
+            <div
+              class="w-8 h-8 text-ink-tertiary transition-colors hover:text-ink-primary"
+              title={iconItem.name}
+            >
+              <Icon name={iconItem.icon} class="w-full h-full" />
+            </div>
+          ))
+        } -->
       </div>
-      <h1 class="mb-6">
+      <h1 class="mb-6 leading-12 md:leading-20">
         Consigue clientes por Internet con una landing que convierta
       </h1>
       <div class="mb-8">
-        <h2 class="text-heading-lg mb-8 text-ink-primary">Yonaiker Barreto</h2>
-        <p class="text-ink-secondary text-lg">Creo landing pages rápidas y profesionales para pequeños negocios que quieren conseguir clientes por Internet</p>
+        <h2 class="text-heading-lg mb-8 text-ink-primary opacity-0">
+          Yonaiker Barreto
+        </h2>
+        <p class="text-ink-secondary text-lg opacity-0">
+          Creo landing pages rápidas y profesionales para pequeños negocios que
+          quieren conseguir clientes por Internet
+        </p>
       </div>
-      <a href="#about" class="btn-primary">
-        Conoce mas
-      </a>
+      <a href="#about" class="btn-primary opacity-0"> Conoce mas </a>
     </div>
   </div>
 </section>
@@ -58,32 +71,32 @@ const techIcons = [
         fullScreen: { enable: false }, // ← Importante: no pantalla completa, solo el div
         background: {
           color: {
-            value: "#ffffff" // Fondo oscuro del hero
-          }
+            value: "#ffffff", // Fondo oscuro del hero
+          },
         },
         particles: {
           number: {
             value: 200,
             density: {
               enable: true,
-            }
+            },
           },
           color: {
-            value: "#000000" // Azul claro para las partículas
+            value: "#000000", // Azul claro para las partículas
           },
           shape: {
-            type: "circle"
+            type: "circle",
           },
           size: {
             value: { min: 1, max: 3 },
-            random: true
+            random: true,
           },
           links: {
             enable: true,
             distance: 150,
             color: "#000000",
             opacity: 0.2,
-            width: 1
+            width: 1,
           },
           move: {
             enable: true,
@@ -92,35 +105,57 @@ const techIcons = [
             random: false,
             straight: false,
             outModes: {
-              default: "bounce"
-            }
-          }
+              default: "bounce",
+            },
+          },
         },
         interactivity: {
           events: {
             onHover: {
               enable: true,
-              mode: "grab" // Al pasar el mouse, "agarrar" partículas cercanas
+              mode: "grab", // Al pasar el mouse, "agarrar" partículas cercanas
             },
             onClick: {
               enable: true,
-              mode: "push" // Al hacer click, añadir partículas
-            }
+              mode: "push", // Al hacer click, añadir partículas
+            },
           },
           modes: {
             grab: {
               distance: 200,
               links: {
-                opacity: 0.5
-              }
+                opacity: 0.5,
+              },
             },
             push: {
-              quantity: 4
-            }
-          }
+              quantity: 4,
+            },
+          },
         },
-        detectRetina: true
+        detectRetina: true,
       },
     });
   })();
+</script>
+
+<script>
+  import { animate, splitText, stagger } from "animejs";
+
+  const { chars } = splitText("h1", {
+    chars: { wrap: "clip" },
+  });
+
+  animate(chars, {
+    y: [{ to: ["100%", "0%"] }],
+    duration: 750,
+    ease: "out(3)",
+    delay: stagger(50),
+  });
+  animate([".hero-copy h2", ".hero-copy P", ".hero-copy a"], {
+    opacity: 1,
+    y: [{ to: ["100%", "0%"] }],
+    duration: 750,
+    ease: "out(3)",
+    delay: 3000,
+  });
 </script>

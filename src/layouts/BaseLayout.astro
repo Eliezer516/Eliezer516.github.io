@@ -122,5 +122,17 @@ const currentPath = Astro.url.pathname;
 
       startSmoothScroll();
     </script>
+    <!-- <script>
+      import { utils, animate, onScroll } from 'animejs'
+      const [ container ] = utils.$("body")
+      animate(".reveal", {
+        y: "1rem",
+        duration: 0.5,
+        autoplay: onScroll({
+          container,
+          enter: 'bottom-=50 top',
+        })
+      })
+    </script> -->
   </body>
 </html>
