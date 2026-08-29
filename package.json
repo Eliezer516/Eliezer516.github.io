@@ -9,6 +9,7 @@
     "preview": "astro preview"
   },
   "dependencies": {
+    "-": "^0.0.1-security.1",
     "@astrojs/tailwind": "^6.0.0",
     "@fontsource/inter": "^5.1.0",
     "@iconify-json/logos": "^1.2.13",
@@ -23,7 +24,9 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.20",
+    "@vitejs/plugin-basic-ssl": "^2.3.0",
     "gsap": "^3.15.0",
-    "mouse-follower": "^1.2.0"
+    "mouse-follower": "^1.2.0",
+    "vite-plugin-qrcode": "^0.4.1"
   }
 }

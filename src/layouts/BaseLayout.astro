@@ -75,6 +75,7 @@ const currentPath = Astro.url.pathname;
         </div>
       </div>
     </footer>
+    <!-- mouse-follower -->
     <script>
       import MouseFollower from "mouse-follower";
       import { gsap } from "gsap";
@@ -84,6 +85,7 @@ const currentPath = Astro.url.pathname;
 
       const cursor = new MouseFollower();
     </script>
+    <!-- Lenis -->
     <script>
       import Lenis from "lenis";
       import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -101,6 +103,7 @@ const currentPath = Astro.url.pathname;
       // Disable lag smoothing in GSAP to prevent any delay in scroll animations
       gsap.ticker.lagSmoothing(0);
     </script>
+    <!-- Reveal on scroll -->
     <script>
       import { gsap } from "gsap";
       import { ScrollTrigger } from "gsap/ScrollTrigger";
