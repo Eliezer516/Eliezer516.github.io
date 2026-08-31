@@ -16,7 +16,7 @@ export default defineConfig({
     plugins: [tailwindcss(), qrcode(), basicSsl()],
     server: {
       host: true,
-      https: true
+      https: false
     }
   }
 });

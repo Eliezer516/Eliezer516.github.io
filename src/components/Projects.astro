@@ -3,15 +3,17 @@ import { projects, filters } from "../data/projects";
 ---
 
 <section class="horizontal-scroll bg-fill-hover h-screen overflow-hidden">
-  <div class="container-main py-section">
-    <div class="mb-12 copy">
+  <div class="py-section">
+    <div class="mb-12 container-main copy">
       <h2 class="text-heading-lg mb-6">Proyectos resueltos</h2>
       <p class="text-ink-secondary max-w-2xl">
         Cada proyecto nació de una necesidad concreta: conseguir clientes,
         ahorrar tiempo, eliminar procesos manuales o validar una idea rápido.
       </p>
     </div>
-    <div class="horizontal-wrapper flex flex-row flex-nowrap gap-5">
+    <div
+      class="horizontal-wrapper flex flex-row flex-nowrap gap-5 translate-x-section-sm md:translate-x-section"
+    >
       {
         projects.map((project) => (
           <div>
@@ -98,7 +100,7 @@ import { projects, filters } from "../data/projects";
 
   if (wrapper) {
     gsap.to(wrapper, {
-      x: () => -(wrapper.scrollWidth - window.innerWidth),
+      x: () => -(wrapper.scrollWidth - window.innerWidth + 20),
       scrollTrigger: {
         trigger: ".horizontal-scroll",
         start: "top top",
