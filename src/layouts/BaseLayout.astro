@@ -103,36 +103,5 @@ const currentPath = Astro.url.pathname;
       // Disable lag smoothing in GSAP to prevent any delay in scroll animations
       gsap.ticker.lagSmoothing(0);
     </script>
-    <!-- Reveal on scroll -->
-    <script>
-      import { gsap } from "gsap";
-      import { ScrollTrigger } from "gsap/ScrollTrigger";
-      gsap.registerPlugin(ScrollTrigger);
-
-      // Usamos ScrollTrigger.batch para capturar los elementos por grupos visuales
-      ScrollTrigger.batch("h2", {
-        start: "top 95%", // Se activa cuando cada elemento toca el 85% de la pantalla
-
-        onEnter: (batch) => {
-          // 'batch' contiene solo los elementos que acaban de entrar al viewport
-          gsap.fromTo(
-            batch,
-            { opacity: 0, y: 50 },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 0.8,
-              stagger: 0.15, // Aplica el stagger SOLO a los elementos visibles
-              overwrite: "auto",
-            },
-          );
-        },
-
-        onLeaveBack: (batch) => {
-          // Opcional: revierte la animación si el usuario sube con el scroll
-          gsap.to(batch, { opacity: 0, y: 50 });
-        },
-      });
-    </script>
   </body>
 </html>

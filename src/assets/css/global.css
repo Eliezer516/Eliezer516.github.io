@@ -32,6 +32,9 @@
   --text-heading-xl--line-height: 1.05;
   --text-heading-xl--font-weight: 500;
   --text-heading-xl--letter-spacing: -0.02em;
+  --text-base-size: 21px;
+  --text-subtitulo: 34px;
+  --text-titulo: 55px;
 
   /* Espaciado */
   --spacing-section: 96px;
@@ -66,12 +69,12 @@
   }
 
   h1 {
-    font-size: var(--text-heading-xl);
+    font-size: var(--text-titulo);
     line-height: 1.05;
   }
 
   h2 {
-    font-size: var(--text-heading-lg);
+    font-size: var(--text-subtitulo);
     line-height: 1.05;
   }
 
@@ -81,7 +84,7 @@
   }
 
   p {
-    font-size: var(--text-body);
+    font-size: var(--text-base-size);
     line-height: 1.5;
     color: var(--color-ink-secondary);
   }
